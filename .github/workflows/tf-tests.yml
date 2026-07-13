@@ -1,0 +1,32 @@
+# CI for the terraform wrapper scripts in tf/. Runs the zero-dependency test
+# suite (tf/tests/run.sh) on every push/PR that touches them. No cloud
+# credentials needed: unit tests are pure jq/bash, failure paths use a stubbed
+# terraform, and the integration tests use only the builtin terraform_data
+# resource with local state.
+name: tf wrapper tests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tf/**'
+      - '.github/workflows/tf-tests.yml'
+  pull_request:
+    paths:
+      - 'tf/**'
+      - '.github/workflows/tf-tests.yml'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: '1.15.6' # keep in step with local mise install
+          # the wrapper script mangles stdout/exit codes the tests assert on
+          terraform_wrapper: false
+
+      - name: Run test suite
+        run: ./tf/tests/run.sh

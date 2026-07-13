@@ -1,0 +1,1318 @@
+
+
+**************************************************
+*** affinity/.terraform/affinity.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-affinity:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-affinity" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://affinity.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://affinity.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://affinity.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://affinity.newtonresearch.ai/" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://affinity.newtonresearch.ai/" (forces replacement)
+      id: "newton-mcp-affinity" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-affinity:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** ampersand/.terraform/ampersand.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-ampersand:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-ampersand" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://ampersand.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://ampersand.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://ampersand.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://ampersand.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://ampersand.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-ampersand" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-ampersand:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** backbone/.terraform/backbone.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-backbone:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-backbone" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://backbone.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://backbone.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://backbone.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://backbone.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://backbone.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-backbone" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-backbone:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** cairnsoneil/.terraform/cairnsoneil.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-cairnsoneil:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-cairnsoneil" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://cairnsoneil.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://cairnsoneil.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://cairnsoneil.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://cairnsoneil.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://cairnsoneil.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-cairnsoneil" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-cairnsoneil:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** cardinalpath/.terraform/cardinalpath.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-cardinalpath:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-cardinalpath" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://cardinalpath.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://cardinalpath.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://cardinalpath.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://cardinalpath.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://cardinalpath.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-cardinalpath" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-cardinalpath:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** carnegie/.terraform/carnegie.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-carnegie:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-carnegie" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://carnegie.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://carnegie.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://carnegie.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://carnegie.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://carnegie.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-carnegie" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-carnegie:1" => "(known after apply)"
+Moves (68):
+
+
+**************************************************
+*** charter/.terraform/charter.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-charter:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-charter" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://charter.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://charter.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://charter.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://charter.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://charter.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-charter" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-charter:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** chewy-ads/.terraform/chewy-ads.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-chewy-ads:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-chewy-ads" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://chewy-ads.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://chewy-ads.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://chewy-ads.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://chewy-ads.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://chewy-ads.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-chewy-ads" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-chewy-ads:1" => "(known after apply)"
+Moves (68):
+
+
+**************************************************
+*** customer-stage/.terraform/customer-stage.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-customer-stage:3" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-customer-stage" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://customer-stage.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://customer-stage.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://customer-stage.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "https://customer-stage.newtonresearch.ai" => "https://customer-stage.newtonresearch.ai/" (forces replacement)
+        NEWTON_BASE_URL.value: "https://customer-stage.newtonresearch.ai" => "https://customer-stage.newtonresearch.ai/" (forces replacement)
+      id: "newton-mcp-customer-stage" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 3 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-customer-stage:3" => "(known after apply)"
+Moves (63):
+
+
+**************************************************
+*** dailymotion/.terraform/dailymotion.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-dailymotion:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-dailymotion" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://dailymotion.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://dailymotion.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://dailymotion.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://dailymotion.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://dailymotion.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-dailymotion" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-dailymotion:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** danone/.terraform/danone.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-danone:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-danone" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://danone.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://danone.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://danone.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://danone.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://danone.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-danone" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-danone:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** dentsu/.terraform/dentsu.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-dentsu:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-dentsu" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://dentsu.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://dentsu.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://dentsu.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://dentsu.newtonresearch.ai/" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://dentsu.newtonresearch.ai/" (forces replacement)
+      id: "newton-mcp-dentsu" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-dentsu:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** disqo/.terraform/disqo.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-disqo:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-disqo" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://disqo.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://disqo.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://disqo.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://disqo.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://disqo.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-disqo" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-disqo:1" => "(known after apply)"
+Moves (68):
+
+
+**************************************************
+*** doordash/.terraform/doordash.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-doordash:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-doordash" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://doordash.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://doordash.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://doordash.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://doordash.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://doordash.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-doordash" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-doordash:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** experian/.terraform/experian.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-experian:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-experian" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://experian.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://experian.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://experian.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://experian.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://experian.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-experian" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-experian:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** gstv/.terraform/gstv.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-gstv:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-gstv" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://gstv.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://gstv.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://gstv.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://gstv.newtonresearch.ai/" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://gstv.newtonresearch.ai/" (forces replacement)
+      id: "newton-mcp-gstv" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-gstv:1" => "(known after apply)"
+Moves (68):
+
+
+**************************************************
+*** healthverity/.terraform/healthverity.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-healthverity:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-healthverity" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://healthverity.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://healthverity.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://healthverity.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://healthverity.newtonresearch.ai/" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://healthverity.newtonresearch.ai/" (forces replacement)
+      id: "newton-mcp-healthverity" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-healthverity:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** hills/.terraform/hills.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-hills:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-hills" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://hills.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://hills.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://hills.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://hills.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://hills.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-hills" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-hills:1" => "(known after apply)"
+Moves (68):
+
+
+**************************************************
+*** horizon-sharkninja/.terraform/horizon-sharkninja.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-horizon-sharkninja:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-horizon-sharkninja" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://horizon-sharkninja.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://horizon-sharkninja.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://horizon-sharkninja.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://horizon-sharkninja.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://horizon-sharkninja.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-horizon-sharkninja" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-horizon-sharkninja:1" => "(known after apply)"
+Moves (58):
+
+
+**************************************************
+*** ifit/.terraform/ifit.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-ifit:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-ifit" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://ifit.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://ifit.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://ifit.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://ifit.newtonresearch.ai/" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://ifit.newtonresearch.ai/" (forces replacement)
+      id: "newton-mcp-ifit" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-ifit:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** kenvue/.terraform/kenvue.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-kenvue:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-kenvue" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://kenvue.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://kenvue.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://kenvue.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://kenvue.newtonresearch.ai/" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://kenvue.newtonresearch.ai/" (forces replacement)
+      id: "newton-mcp-kenvue" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-kenvue:1" => "(known after apply)"
+Moves (68):
+
+
+**************************************************
+*** kohler/.terraform/kohler.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-kohler:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-kohler" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://kohler.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://kohler.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://kohler.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://kohler.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://kohler.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-kohler" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-kohler:1" => "(known after apply)"
+Moves (68):
+
+
+**************************************************
+*** lgads/.terraform/lgads.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-lgads:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-lgads" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://lgads.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://lgads.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://lgads.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://lgads.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://lgads.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-lgads" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-lgads:1" => "(known after apply)"
+Moves (68):
+
+
+**************************************************
+*** locality/.terraform/locality.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-locality:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-locality" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://locality.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://locality.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://locality.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://locality.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://locality.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-locality" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-locality:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** mediasmith/.terraform/mediasmith.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-mediasmith:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-mediasmith" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://mediasmith.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://mediasmith.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://mediasmith.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://mediasmith.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://mediasmith.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-mediasmith" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-mediasmith:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** milemarker/.terraform/milemarker.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-milemarker:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-milemarker" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://milemarker.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://milemarker.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://milemarker.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://milemarker.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://milemarker.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-milemarker" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-milemarker:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** missionone/.terraform/missionone.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-missionone:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-missionone" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://missionone.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://missionone.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://missionone.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://missionone.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://missionone.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-missionone" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-missionone:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** monks/.terraform/monks.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-monks:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-monks" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://monks.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://monks.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://monks.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://monks.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://monks.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-monks" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-monks:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** oceanmedia/.terraform/oceanmedia.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-oceanmedia:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-oceanmedia" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://oceanmedia.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://oceanmedia.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://oceanmedia.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://oceanmedia.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://oceanmedia.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-oceanmedia" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-oceanmedia:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** optable/.terraform/optable.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-optable:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-optable" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://optable.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://optable.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://optable.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://optable.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://optable.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-optable" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-optable:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** ovative/.terraform/ovative.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-ovative:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-ovative" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://ovative.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://ovative.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://ovative.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://ovative.newtonresearch.ai/" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://ovative.newtonresearch.ai/" (forces replacement)
+      id: "newton-mcp-ovative" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-ovative:1" => "(known after apply)"
+Moves (68):
+
+
+**************************************************
+*** pmg/.terraform/pmg.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-pmg:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-pmg" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://pmg.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://pmg.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://pmg.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://pmg.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://pmg.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-pmg" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-pmg:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** pulsepoint/.terraform/pulsepoint.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-pulsepoint:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-pulsepoint" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://pulsepoint.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://pulsepoint.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://pulsepoint.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://pulsepoint.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://pulsepoint.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-pulsepoint" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-pulsepoint:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** rainthegrowth/.terraform/rainthegrowth.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-rainthegrowth:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-rainthegrowth" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://rainthegrowth.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://rainthegrowth.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://rainthegrowth.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://rainthegrowth.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://rainthegrowth.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-rainthegrowth" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-rainthegrowth:1" => "(known after apply)"
+Moves (68):
+
+
+**************************************************
+*** ramp/.terraform/ramp.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-ramp:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-ramp" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://ramp.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://ramp.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://ramp.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://ramp.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://ramp.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-ramp" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-ramp:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** relometrics/.terraform/relometrics.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-relometrics:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-relometrics" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://relometrics.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://relometrics.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://relometrics.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://relometrics.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://relometrics.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-relometrics" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-relometrics:1" => "(known after apply)"
+Moves (68):
+
+
+**************************************************
+*** rpa-honda/.terraform/rpa-honda.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-rpa-honda:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-rpa-honda" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://rpa-honda.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://rpa-honda.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://rpa-honda.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://rpa-honda.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://rpa-honda.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-rpa-honda" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-rpa-honda:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** rpa-spotless/.terraform/rpa-spotless.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-rpa-spotless:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-rpa-spotless" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://rpa-spotless.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://rpa-spotless.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://rpa-spotless.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://rpa-spotless.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://rpa-spotless.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-rpa-spotless" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-rpa-spotless:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** shipt/.terraform/shipt.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-shipt:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-shipt" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://shipt.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://shipt.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://shipt.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://shipt.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://shipt.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-shipt" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-shipt:1" => "(known after apply)"
+Moves (68):
+
+
+**************************************************
+*** simulmedia/.terraform/simulmedia.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-simulmedia:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-simulmedia" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://simulmedia.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://simulmedia.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://simulmedia.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://simulmedia.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://simulmedia.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-simulmedia" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-simulmedia:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** snap/.terraform/snap.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-snap:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-snap" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://snap.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://snap.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://snap.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://snap.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://snap.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-snap" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-snap:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** spectrum-marketing/.terraform/spectrum-marketing.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-spectrum-marketing:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-spectrum-marketing" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://spectrum-marketing.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://spectrum-marketing.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://spectrum-marketing.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://spectrum-marketing.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://spectrum-marketing.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-spectrum-marketing" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-spectrum-marketing:1" => "(known after apply)"
+Moves (68):
+
+
+**************************************************
+*** sponsorpulse/.terraform/sponsorpulse.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-sponsorpulse:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-sponsorpulse" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://sponsorpulse.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://sponsorpulse.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://sponsorpulse.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://sponsorpulse.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://sponsorpulse.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-sponsorpulse" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-sponsorpulse:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** stagwell/.terraform/stagwell.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-stagwell:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-stagwell" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://stagwell.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://stagwell.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://stagwell.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://stagwell.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://stagwell.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-stagwell" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-stagwell:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** tinuiti/.terraform/tinuiti.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-tinuiti:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-tinuiti" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://tinuiti.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://tinuiti.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://tinuiti.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://tinuiti.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://tinuiti.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-tinuiti" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-tinuiti:1" => "(known after apply)"
+Moves (68):
+
+
+**************************************************
+*** uhc-demo/.terraform/uhc-demo.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-uhc-demo:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-uhc-demo" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://uhc-demo.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://uhc-demo.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://uhc-demo.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://uhc-demo.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://uhc-demo.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-uhc-demo" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-uhc-demo:1" => "(known after apply)"
+Moves (68):
+
+
+**************************************************
+*** united/.terraform/united.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-united:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-united" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://united.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://united.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://united.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://united.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://united.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-united" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-united:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** wpp-blackrock/.terraform/wpp-blackrock.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-wpp-blackrock:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-wpp-blackrock" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://wpp-blackrock.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://wpp-blackrock.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://wpp-blackrock.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://wpp-blackrock.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://wpp-blackrock.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-wpp-blackrock" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-wpp-blackrock:1" => "(known after apply)"
+Moves (58):
+
+
+**************************************************
+*** wpp-canada/.terraform/wpp-canada.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-wpp-canada:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-wpp-canada" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://wpp-canada.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://wpp-canada.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://wpp-canada.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://wpp-canada.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://wpp-canada.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-wpp-canada" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-wpp-canada:1" => "(known after apply)"
+Moves (67):
+
+
+**************************************************
+*** wpp-demo/.terraform/wpp-demo.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-wpp-demo:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-wpp-demo" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://wpp-demo.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://wpp-demo.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://wpp-demo.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-wpp-demo" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-wpp-demo:1" => "(known after apply)"
+Moves (62):
+
+
+**************************************************
+*** wpp-indeed/.terraform/wpp-indeed.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-wpp-indeed:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-wpp-indeed" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://wpp-indeed.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://wpp-indeed.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://wpp-indeed.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://wpp-indeed.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://wpp-indeed.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-wpp-indeed" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-wpp-indeed:1" => "(known after apply)"
+Moves (58):
+
+
+**************************************************
+*** wpp-jnj/.terraform/wpp-jnj.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-wpp-jnj:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-wpp-jnj" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://wpp-jnj.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://wpp-jnj.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://wpp-jnj.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://wpp-jnj.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://wpp-jnj.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-wpp-jnj" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-wpp-jnj:1" => "(known after apply)"
+Moves (57):
+
+
+**************************************************
+*** wpp-nestle/.terraform/wpp-nestle.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-wpp-nestle:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-wpp-nestle" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://wpp-nestle.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://wpp-nestle.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://wpp-nestle.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://wpp-nestle.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://wpp-nestle.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-wpp-nestle" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-wpp-nestle:1" => "(known after apply)"
+Moves (58):
+
+
+**************************************************
+*** wpp-scj/.terraform/wpp-scj.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-wpp-scj:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-wpp-scj" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://wpp-scj.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://wpp-scj.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://wpp-scj.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://wpp-scj.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://wpp-scj.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-wpp-scj" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-wpp-scj:1" => "(known after apply)"
+Moves (58):
+
+
+**************************************************
+*** wpp-ups/.terraform/wpp-ups.tfplan.json
+**************************************************
+Changes (3):
+  [create] - module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu[0]
+  [delete/create] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_task_definition.mcp[0]
+      arn: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-wpp-ups:1" => "(known after apply)"
+      arn_without_revision: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-wpp-ups" => "(known after apply)"
+      container_definitions.newton-mcp.environment.
+        MCP_JWKS_URI.value: "https://login.newtonresearch.ai/.well-known/jwks.json" => "https://wpp-ups.newtonresearch.ai/oauth/jwks" (forces replacement)
+        MCP_JWT_ISSUER.value: "https://login.newtonresearch.ai/" => "https://wpp-ups.newtonresearch.ai" (forces replacement)
+        MCP_OAUTH_AS_URL.name: null => "MCP_OAUTH_AS_URL" (forces replacement)
+        MCP_OAUTH_AS_URL.value: null => "https://wpp-ups.newtonresearch.ai" (forces replacement)
+        MCP_PUBLIC_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://wpp-ups.newtonresearch.ai" (forces replacement)
+        NEWTON_BASE_URL.value: "MANAGED_OUT_OF_BAND" => "https://wpp-ups.newtonresearch.ai" (forces replacement)
+      id: "newton-mcp-wpp-ups" => "(known after apply)"
+      ipc_mode: "" => null
+      pid_mode: "" => null
+      revision: 1 => "(known after apply)"
+  [update] - module.customer.module.customer_stack.module.ecs_application.aws_ecs_service.mcp[0]
+      task_definition: "arn:aws:ecs:us-east-2:637423466983:task-definition/newton-mcp-wpp-ups:1" => "(known after apply)"
+Moves (58):

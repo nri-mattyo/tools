@@ -1,0 +1,14 @@
+{
+  "format_version": "1.2",
+  "resource_changes": [
+    {"address": "aws_s3_bucket.new", "change": {"actions": ["create"], "importing": null}},
+    {"address": "aws_iam_role.web",  "change": {"actions": ["update"], "importing": null}},
+    {"address": "aws_instance.old",  "change": {"actions": ["delete"], "importing": null}},
+    {"address": "aws_ecs_service.app", "change": {"actions": ["delete","create"], "importing": null}},
+    {"address": "aws_cloudwatch_metric_alarm.cpu", "change": {"actions": ["no-op"], "importing": {"id": "cpu-alarm-1"}}},
+    {"address": "aws_sqs_queue.q", "previous_address": "aws_sqs_queue.old_q", "change": {"actions": ["no-op"], "importing": null}},
+    {"address": "aws_ssm_parameter.p", "change": {"actions": ["forget"], "importing": null}},
+    {"address": "data.aws_caller_identity.me", "change": {"actions": ["read"], "importing": null}},
+    {"address": "aws_route53_record.same", "change": {"actions": ["no-op"], "importing": null}}
+  ]
+}
