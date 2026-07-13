@@ -26,7 +26,20 @@
 #   ./plan.sh customers/acme -- -var-file=x.tfvars
 #   ./plan.sh --all --no-apply --skip-fresh 24   # the old sweep behavior
 set -o pipefail
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# abspath <path> — follow symlinks to the real file (portable readlink -f), so
+# this script can be symlinked onto PATH (e.g. tools/bin/) and still find
+# lib/common.sh next to the real file. Must live here, before the lib exists.
+abspath() {
+  local p="$1" dir
+  while [ -L "$p" ]; do
+    dir="$(cd -P "$(dirname "$p")" && pwd)"
+    p="$(readlink "$p")"
+    case "$p" in /*) ;; *) p="${dir}/${p}" ;; esac
+  done
+  dir="$(cd -P "$(dirname "$p")" && pwd)"
+  printf '%s/%s\n' "$dir" "$(basename "$p")"
+}
+SCRIPT_DIR="$(dirname "$(abspath "${BASH_SOURCE[0]}")")"
 . "${SCRIPT_DIR}/lib/common.sh"
 
 usage() { sed -n '2,28p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//'; }
