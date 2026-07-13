@@ -101,9 +101,9 @@ jq -rc --argjson color "$color" '
                         | . as $rc
                         | ($rc | aligned_lines) as $body
                         | { sort: "\($rc.change.actions|join("/")) \($rc.address)",
-                            out: (("  [\($rc.change.actions|join("/"))] - \($rc.address)")
+                            out: ((("  [\($rc.change.actions|join("/"))] - \($rc.address)")
                                     | paint($rc.change.actions|action_color))
-                                 + (if ($body|length) > 0 then "\n" + ($body|join("\n")) else "" end) }
+                                  + (if ($body|length) > 0 then "\n" + ($body|join("\n")) else "" end)) }
                     ] | sort_by(.sort) | map(.out) | join("\n"))"
                 ) else (null) end,
                 if (.moves | length > 0) then "Moves (\(.moves|length)):" else (null) end

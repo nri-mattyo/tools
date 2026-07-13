@@ -114,9 +114,9 @@ jq -rc --argjson color "$color" '
                         | . as $rc
                         | (render_tree($rc | diff_entries)) as $tree
                         | { sort: "\($rc.change.actions|join("/")) \($rc.address)",
-                            out: (("  [\($rc.change.actions|join("/"))] - \($rc.address)")
+                            out: ((("  [\($rc.change.actions|join("/"))] - \($rc.address)")
                                     | paint($rc.change.actions|action_color))
-                                 + (if ($tree|length) > 0 then "\n" + ($tree|join("\n")) else "" end) }
+                                  + (if ($tree|length) > 0 then "\n" + ($tree|join("\n")) else "" end)) }
                     ] | sort_by(.sort) | map(.out) | join("\n"))"
                 ) else (null) end,
                 if (.moves | length > 0) then "Moves (\(.moves|length)):" else (null) end

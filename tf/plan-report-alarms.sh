@@ -99,9 +99,9 @@ jq -rc --argjson color "$color" '
                         | . as $rc
                         | ($rc | field_diff) as $fd
                         | { sort: "\($rc.change.actions|join("/")) \($rc.address)",
-                            out: (("  [\($rc.change.actions|join("/"))] - \($rc.address)")
+                            out: ((("  [\($rc.change.actions|join("/"))] - \($rc.address)")
                                     | paint($rc.change.actions|action_color))
-                                 + (if (($fd|length) > 0 and ($rc.address | test("module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu") | not)) then "\n" + ($fd|join("\n")) else "" end) }
+                                  + (if (($fd|length) > 0 and ($rc.address | test("module.customer.module.customer_stack.module.ecs_application.aws_cloudwatch_metric_alarm.mcp_ecs_service_cpu") | not)) then "\n" + ($fd|join("\n")) else "" end)) }
                     ] | sort_by(.sort) | map(.out) | join("\n"))"
                 ) else (null) end,
                 if (.moves | length > 0) then (
