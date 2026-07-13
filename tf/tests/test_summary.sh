@@ -53,6 +53,12 @@ test_summary_no_changes() {
   assert_eq "No changes." "$(plan_quick_summary "$FIXTURES/empty-plan.json")" "empty plan message"
 }
 
+test_missing_resource_changes_key() {
+  # terraform show -json omits resource_changes entirely on a no-changes plan
+  assert_eq 0 "$(plan_counts "$FIXTURES/no-changes-plan.json" | jq -r '.total')" "counts tolerate missing key"
+  assert_eq "No changes." "$(plan_quick_summary "$FIXTURES/no-changes-plan.json")" "summary tolerates missing key"
+}
+
 test_fmt_age() {
   assert_eq "12m"    "$(fmt_age 720)"
   assert_eq "3h 24m" "$(fmt_age 12240)"
@@ -65,5 +71,6 @@ run_test test_summary_header_line
 run_test test_summary_resource_lines
 run_test test_summary_hides_noise
 run_test test_summary_no_changes
+run_test test_missing_resource_changes_key
 run_test test_fmt_age
 finish

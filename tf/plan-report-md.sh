@@ -87,22 +87,37 @@ jq -r '
 
     # ---- filter -------------------------------------------------------------
 #    select(
-#        [.resource_changes[] | select(.change.actions[0] != "no-op")] | length > 0
+#        [.resource_changes[]? | select(.change.actions[0] != "no-op")] | length > 0
 #    ) |
 #    select(input_filename | test("/wpp-\\w+.tfplan.json|/pwc-pepsi.tfplan.json") | not) |
     select(
-        [.resource_changes[] | select(.change.actions[0] != "no-op")] | length > 0
+        [.resource_changes[]?
+         | select(.previous_address != null
+                  or .change.importing != null
+                  or .change.actions[0] != "no-op")] | length > 0
     ) |
 
     # ---- report (one input document = one customer plan) --------------------
+    # Same buckets as plan-report.sh: "removed" = a forget (dropped from state
+    # WITHOUT destroying); imports ride alongside a no-op/update via
+    # .change.importing; moves are address changes only.
     (input_filename | split("/")[-3]) as $title          # the <customer> dir
-    | ( [ .resource_changes[]
-          | select(.previous_address != null or .change.actions[0] != "no-op") ] ) as $int
-    | ($int | map(select(.change.actions[0] != "no-op"))) as $changes
-    | ($int | map(select(.previous_address != null)))     as $moves
+    | ( [ .resource_changes[]?
+          | select(.previous_address != null
+                   or .change.importing != null
+                   or .change.actions[0] != "no-op") ] ) as $int
+    | ($int | map(select(.change.actions[0] != "no-op"
+                         and .change.actions != ["forget"]))) as $changes
+    | ($int | map(select(.change.actions == ["forget"])))     as $removed
+    | ($int | map(select(.change.importing != null)))         as $imports
+    | ($int | map(select(.previous_address != null)))         as $moves
     | ( [ "## \($title)",
           "",
-          "_\($changes|length) change(s), \($moves|length) move(s)_",
+          ( [ (if ($changes|length) > 0 then "\($changes|length) change(s)" else null end),
+              (if ($imports|length) > 0 then "\($imports|length) import(s)" else null end),
+              (if ($removed|length) > 0 then "\($removed|length) removed"   else null end),
+              (if ($moves|length)   > 0 then "\($moves|length) move(s)"     else null end) ]
+            | map(select(. != null)) | "_\(join(", "))_" ),
           "" ]
         + ( $changes
             | sort_by("\(.change.actions|join("/")) \(.address)")
@@ -118,12 +133,27 @@ jq -r '
                      else ["_no attribute-level diff (metadata only)_"] end)
                   + [ "", "</details>", "" ] )
             | add // [] )
+        + ( if ($imports|length) > 0
+            then [ "<details>",
+                   "<summary>📥 \($imports|length) imported (adopted into state)</summary>",
+                   "", "```" ]
+                 + ( $imports | sort_by(.address)
+                     | map("\(.address)  (id: \(.change.importing.id // "?"))") )
+                 + ["```", "", "</details>", "" ]
+            else [] end )
+        + ( if ($removed|length) > 0
+            then [ "<details>",
+                   "<summary>🗑️ \($removed|length) removed from state (not destroyed)</summary>",
+                   "", "```" ]
+                 + ( $removed | sort_by(.address) | map(.address) )
+                 + ["```", "", "</details>", "" ]
+            else [] end )
         + ( if ($moves|length) > 0
             then [ "<details>",
                    "<summary>↪️ \($moves|length) moved (address change only)</summary>",
                    "", "```" ]
-                 # + ( $moves | sort_by(.address)
-                 #     # | map("\(.previous_address)\n  => \(.address)") )
+                 + ( $moves | sort_by(.address)
+                     | map("\(.previous_address)\n  => \(.address)") )
                  + ["```", "", "</details>", "" ]
             else [] end )
         + [ "", "---", "" ]

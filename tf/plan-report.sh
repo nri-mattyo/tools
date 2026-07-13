@@ -85,14 +85,14 @@ jq -rc --argjson color "$color" '
         
     # ---- filter -------------------------------------------------------------
     # select(
-    #     [.resource_changes[] | select(.change.actions[0] != "no-op")] | length > 2
+    #     [.resource_changes[]? | select(.change.actions[0] != "no-op")] | length > 2
     # ) |
 
     # ---- report -------------------------------------------------------------
     ["\n","*"*50, "*** \(input_filename | split("/")[-3:]|join("/"))", "*"*50] +
     ([
             [
-                .resource_changes[]
+                .resource_changes[]?
                 | select(.previous_address != null
                          or .change.importing != null
                          or .change.actions[0] != "no-op")

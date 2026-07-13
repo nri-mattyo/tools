@@ -70,7 +70,7 @@ records="$(jq -c --arg match "$MATCH" --arg res "$RES_TYPE" '
       | map("  \(.key) = \(.value | inline_hcl)")
       | join("\n");
 
-    .resource_changes[]
+    .resource_changes[]?
     | select((.address | test($match)) and .change.actions == ["create"])
     | (input_filename)            as $pf
     | ($pf | split("/")[-3])      as $customer
