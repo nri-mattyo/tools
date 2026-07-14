@@ -219,6 +219,22 @@ plan_quick_summary() {
   ' "$1"
 }
 
+# fresh_plan_json <abs-dir> — succeeds when the latest plan is newer than
+# SKIP_FRESH_HOURS, echoing its json path (if the file still exists) so the
+# caller can reuse it in reports. Fails when a new plan is needed.
+# SKIP_FRESH_HOURS=0/unset disables freshness skipping.
+fresh_plan_json() {
+  local dir="$1" latest="$1/.terraform/tfplans/latest.json" prev_epoch age j
+  [ "${SKIP_FRESH_HOURS:-0}" -gt 0 ] || return 1
+  [ -f "$latest" ] || return 1
+  prev_epoch="$(jq -r '.created_epoch // 0' "$latest")"
+  age=$(( $(date +%s) - prev_epoch ))
+  [ "$age" -lt $(( SKIP_FRESH_HOURS * 3600 )) ] || return 1
+  j="$(jq -r '.json_file // empty' "$latest")"
+  [ -n "$j" ] && [ -f "$j" ] && echo "$j"
+  return 0
+}
+
 # ---- run metadata ----------------------------------------------------------
 # write_run_meta <dir> <name> <ts> <base> <exit_code> <counts_json>
 # Writes <base>.run.json and refreshes .terraform/tfplans/latest.json.
