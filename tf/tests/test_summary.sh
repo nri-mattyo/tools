@@ -60,6 +60,7 @@ test_missing_resource_changes_key() {
 }
 
 test_fmt_age() {
+  assert_eq "42s"    "$(fmt_age 42)"
   assert_eq "12m"    "$(fmt_age 720)"
   assert_eq "3h 24m" "$(fmt_age 12240)"
   assert_eq "2d 3h"  "$(fmt_age 183600)"
