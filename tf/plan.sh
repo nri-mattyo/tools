@@ -17,6 +17,11 @@
 #   ./plan.sh [options] [dir ...] [-- <extra terraform plan args>]
 #     --all              discover every root module under the cwd (backend "s3")
 #     --skip-fresh N     skip a module whose latest plan is newer than N hours
+#     -j, --parallel N   plan N modules concurrently ('auto' = half the cores,
+#                        max 8). Parallel sweeps are plan-only: live one-line
+#                        status per worker, a completion block per module with
+#                        FULL counts (imports/forgets/moves included), and a
+#                        final summary table; apply afterwards with apply.sh
 #     -y, --auto-apply   apply each plan that has changes, without prompting
 #     --no-apply         never offer to apply (plan/report only)
 #     (no dir args: the current directory)
@@ -25,6 +30,7 @@
 #   ./plan.sh                                # plan the module you're standing in, then ask
 #   ./plan.sh customers/acme -- -var-file=x.tfvars
 #   ./plan.sh --all --no-apply --skip-fresh 24   # the old sweep behavior
+#   ./plan.sh --all -j 6 --skip-fresh 24         # the same sweep, 6 at a time
 set -o pipefail
 # abspath <path> — follow symlinks to the real file (portable readlink -f), so
 # this script can be symlinked onto PATH (e.g. tools/bin/) and still find
@@ -41,13 +47,15 @@ abspath() {
 }
 SCRIPT_DIR="$(dirname "$(abspath "${BASH_SOURCE[0]}")")"
 . "${SCRIPT_DIR}/lib/common.sh"
+. "${SCRIPT_DIR}/lib/parallel.sh"
 
-usage() { sed -n '2,28p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//'; }
+usage() { sed -n '2,35p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//'; }
 
 RUN_ARGV="plan.sh $*"
 ALL=false
 APPLY_MODE=prompt   # prompt | auto | never
 SKIP_FRESH_HOURS=0
+JOBS=1
 DIRS=()
 TF_ARGS=()
 while [ $# -gt 0 ]; do
@@ -56,6 +64,13 @@ while [ $# -gt 0 ]; do
     --skip-fresh)
       SKIP_FRESH_HOURS="${2:-}"; shift
       case "$SKIP_FRESH_HOURS" in (''|*[!0-9]*) err "--skip-fresh needs a number of hours"; exit 2 ;; esac ;;
+    -j|--parallel)
+      JOBS="${2:-}"; shift
+      case "$JOBS" in
+        auto) JOBS="$(auto_jobs)" ;;
+        ''|*[!0-9]*) err "--parallel needs a number of workers or 'auto'"; exit 2 ;;
+        0) err "--parallel must be >= 1"; exit 2 ;;
+      esac ;;
     -y|--auto-apply) APPLY_MODE=auto ;;
     --no-apply) APPLY_MODE=never ;;
     -h|--help) usage; exit 0 ;;
@@ -73,17 +88,11 @@ plan_module() {
   name="$(basename "$d_abs")"
   banner "tf plan — ${name}"
 
-  if [ "$SKIP_FRESH_HOURS" -gt 0 ] && [ -f "${d_abs}/.terraform/tfplans/latest.json" ]; then
-    local prev_epoch age
-    prev_epoch="$(jq -r '.created_epoch // 0' "${d_abs}/.terraform/tfplans/latest.json")"
-    age=$(( $(date +%s) - prev_epoch ))
-    if [ "$age" -lt $(( SKIP_FRESH_HOURS * 3600 )) ]; then
-      info "skipping ${name}: latest plan is $(fmt_age "$age") old (< ${SKIP_FRESH_HOURS}h)"
-      local prev_json
-      prev_json="$(jq -r '.json_file // empty' "${d_abs}/.terraform/tfplans/latest.json")"
-      [ -n "$prev_json" ] && [ -f "$prev_json" ] && PLANNED_JSONS+=("$prev_json")
-      return 0
-    fi
+  local prev_json
+  if prev_json="$(fresh_plan_json "$d_abs")"; then
+    info "skipping ${name}: latest plan is fresher than ${SKIP_FRESH_HOURS}h"
+    [ -n "$prev_json" ] && PLANNED_JSONS+=("$prev_json")
+    return 0
   fi
 
   init_module "$d_abs" || return 1
@@ -146,9 +155,32 @@ ensure_aws_auth || exit 1
 
 PLANNED_JSONS=()
 overall_rc=0
-for d in "${MODULE_DIRS[@]}"; do
-  plan_module "$d" || overall_rc=1
-done
+
+if [ "$JOBS" -gt 1 ] && [ ${#MODULE_DIRS[@]} -gt 1 ]; then
+  # ---- parallel sweep: plan-only, live status, per-module completion blocks
+  if [ "$APPLY_MODE" = auto ]; then
+    warn "parallel mode is plan-only — ignoring --auto-apply (apply afterwards with apply.sh)"
+  fi
+  QUEUE=()
+  for d in "${MODULE_DIRS[@]}"; do
+    d_abs="$(cd "$d" 2>/dev/null && pwd)" || { err "no such directory: $d"; overall_rc=1; continue; }
+    if prev_json="$(fresh_plan_json "$d_abs")"; then
+      info "skipping $(basename "$d_abs"): latest plan is fresher than ${SKIP_FRESH_HOURS}h"
+      [ -n "$prev_json" ] && PLANNED_JSONS+=("$prev_json")
+      continue
+    fi
+    QUEUE+=("$d_abs")
+  done
+  if [ ${#QUEUE[@]} -gt 0 ]; then
+    info "planning ${#QUEUE[@]} module(s), ${JOBS} at a time (plan-only; apply with apply.sh)"
+    parallel_sweep "$JOBS" || overall_rc=1
+    parallel_summary_table
+  fi
+else
+  for d in "${MODULE_DIRS[@]}"; do
+    plan_module "$d" || overall_rc=1
+  done
+fi
 
 # Combined report when sweeping several modules, as the old plan.sh did.
 if [ ${#PLANNED_JSONS[@]} -gt 1 ] && [ -x "${SCRIPT_DIR}/plan-report.sh" ]; then

@@ -3,6 +3,9 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 export AWS_DEFAULT_PROFILE="${AWS_DEFAULT_PROFILE:-nri-customer}"
 BASE_DIR="$(pwd)"
 
+#REFRESH_SECS=86400
+REFRESH_SECS=60
+
 # track all of the plans processed
 MYPLANS=()
 CURR_TS="$(date +"%s")"
@@ -14,8 +17,8 @@ rg 'backend "s3"' --json \
   cd "${BASE_DIR}/${TFDIR}"
   file=".terraform/latest.tfplan.json"
   echo "checkfile $file"
-  if [[ -f "${file}" && $(jc stat "${file}" | jq -r '.[0].size') -gt 0 &&
-        $(( $CURR_TS -  $(jc stat "${file}" | jq -r '.[0].modify_time_epoch') )) -lt 86400 ]]; then
+  if [[ -f "${file}" && "$(jc stat "${file}" | jq -r '.[0].size')" -gt 0 &&
+        "$(( $CURR_TS -  $(jc stat "${file}" | jq -r '.[0].modify_time_epoch') ))" -lt "${REFRESH_SECS}" ]]; then
     echo "SKIPPING $(ls -la $file)"
   else
     TFDIR_NAME="$(basename "${TFDIR}")"
@@ -27,6 +30,8 @@ rg 'backend "s3"' --json \
     sleep 1
     echo "RUNNING: terraform init -reconfigure"
     terraform init -reconfigure
+#    echo "RUNNING: terraform init"
+#    terraform init
     mkdir -p .terraform/tfplans
     terraform plan -out ".terraform/tfplans/${TFDIR_NAME}.${MYPLAN_TS}.tfplan" -no-color 2>&1 \
         | tee ".terraform/tfplans/${TFDIR_NAME}.${MYPLAN_TS}.tfplan.log"
