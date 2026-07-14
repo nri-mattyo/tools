@@ -92,16 +92,37 @@ EOF
   chmod +x "$SANDBOX/stub/aws"
 }
 
-# make_tf_stub <ok|auth-once|backend-change|hard-fail> — fake `terraform` whose
-# `init` behavior is driven by a mode file (so a mode can flip itself after one
-# failure). Every invocation is appended to $SANDBOX/stub/tf-calls.log.
-#   ok             init succeeds
-#   auth-once      first init fails with an ExpiredToken error, then succeeds
-#   backend-change init fails asking for -reconfigure until it's passed
-#   hard-fail      init always fails with a non-recoverable config error
+# make_tf_stub <ok|auth-once|backend-change|hard-fail> [plan-mode] — fake
+# `terraform` whose `init` behavior is driven by a mode file (so a mode can
+# flip itself after one failure). Every invocation is appended to
+# $SANDBOX/stub/tf-calls.log.
+#   init modes:
+#     ok             init succeeds
+#     auth-once      first init fails with an ExpiredToken error, then succeeds
+#     backend-change init fails asking for -reconfigure until it's passed
+#     hard-fail      init always fails with a non-recoverable config error
+#   plan modes (default ok):
+#     ok             plan writes the -out file, exits 2 (changes present)
+#     sleep          same, after sleeping 2s; start/end epochs per module are
+#                    recorded in plan-times.log (for concurrency assertions)
+#     auth-fail      plan fails with an ExpiredToken error
+#   `show -json` emits a canned plan with one of each: create, import, forget,
+#   move — so FULL-count rendering (zeros included) is exercised.
 make_tf_stub() {
   mkdir -p "$SANDBOX/stub"
   printf '%s\n' "${1:-ok}" > "$SANDBOX/stub/mode"
+  printf '%s\n' "${2:-ok}" > "$SANDBOX/stub/plan-mode"
+  cat > "$SANDBOX/stub/canned-plan.json" <<'EOF'
+{
+  "format_version": "1.2",
+  "resource_changes": [
+    {"address": "aws_s3_bucket.new", "change": {"actions": ["create"], "importing": null}},
+    {"address": "aws_cloudwatch_metric_alarm.cpu", "change": {"actions": ["no-op"], "importing": {"id": "cpu-alarm-1"}}},
+    {"address": "aws_ssm_parameter.p", "change": {"actions": ["forget"], "importing": null}},
+    {"address": "aws_sqs_queue.q", "previous_address": "aws_sqs_queue.old_q", "change": {"actions": ["no-op"], "importing": null}}
+  ]
+}
+EOF
   cat > "$SANDBOX/stub/terraform" <<'EOF'
 #!/usr/bin/env bash
 STATE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -138,6 +159,32 @@ case "$1" in
         exit 1
         ;;
     esac
+    ;;
+  plan)
+    pmode="$(cat "$STATE_DIR/plan-mode")"
+    module="$(basename "$PWD")"
+    case "$pmode" in
+      auth-fail)
+        echo "Error: error configuring S3 Backend: ExpiredToken: The security token included in the request is expired"
+        exit 1
+        ;;
+      sleep)
+        echo "$module start $(date +%s)" >> "$STATE_DIR/plan-times.log"
+        sleep 2
+        echo "$module end $(date +%s)" >> "$STATE_DIR/plan-times.log"
+        ;;
+    esac
+    # honor -out <file> so the wrapper's artifact checks hold
+    prev=""
+    for a in "$@"; do
+      [ "$prev" = "-out" ] && echo "stub-plan" > "$a"
+      prev="$a"
+    done
+    echo "Plan: 1 to add, 0 to change, 0 to destroy."
+    exit 2
+    ;;
+  show)
+    cat "$STATE_DIR/canned-plan.json"
     ;;
 esac
 exit 0
