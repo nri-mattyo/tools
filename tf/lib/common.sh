@@ -30,11 +30,12 @@ err()    { printf '%s %s\n' "$(paint 31 'error:')" "$*" >&2; }
 hr()     { printf '%*s\n' 50 '' | tr ' ' '*'; }
 banner() { hr; echo "*** $*"; hr; }
 
-fmt_age() { # fmt_age <seconds> -> "2d 3h" / "3h 24m" / "12m"
+fmt_age() { # fmt_age <seconds> -> "2d 3h" / "3h 24m" / "12m" / "42s"
   local s="$1"
   if   [ "$s" -ge 86400 ]; then echo "$(( s / 86400 ))d $(( (s % 86400) / 3600 ))h"
   elif [ "$s" -ge 3600 ];  then echo "$(( s / 3600 ))h $(( (s % 3600) / 60 ))m"
-  else                          echo "$(( s / 60 ))m"
+  elif [ "$s" -ge 60 ];    then echo "$(( s / 60 ))m"
+  else                          echo "${s}s"
   fi
 }
 
