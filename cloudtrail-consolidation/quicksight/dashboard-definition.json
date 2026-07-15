@@ -1,0 +1,274 @@
+{
+  "DataSetIdentifierDeclarations": [
+    {
+      "Identifier": "consolidated",
+      "DataSetArn": "arn:aws:quicksight:us-east-1:381492092437:dataset/cloudtrail-consolidation-consolidated"
+    }
+  ],
+  "CalculatedFields": [
+    {
+      "DataSetIdentifier": "consolidated",
+      "Name": "error_rate_pct",
+      "Expression": "100.0 * sum(ifelse({is_error}='true',1,0)) / count({is_error})"
+    },
+    {
+      "DataSetIdentifier": "consolidated",
+      "Name": "day_date",
+      "Expression": "parseDate(concat(substring({day},1,4),'-',substring({day},5,2),'-',substring({day},7,2)))"
+    }
+  ],
+  "FilterGroups": [
+    {
+      "FilterGroupId": "default-date-range-overview",
+      "CrossDataset": "SINGLE_DATASET",
+      "ScopeConfiguration": { "SelectedSheets": { "SheetVisualScopingConfigurations": [ { "SheetId": "overview", "Scope": "ALL_VISUALS" } ] } },
+      "Filters": [
+        {
+          "RelativeDatesFilter": {
+            "FilterId": "date-filter-overview",
+            "Column": { "DataSetIdentifier": "consolidated", "ColumnName": "day_date" },
+            "AnchorDateConfiguration": { "AnchorOption": "NOW" },
+            "TimeGranularity": "DAY",
+            "RelativeDateType": "LAST",
+            "RelativeDateValue": 30,
+            "NullOption": "NON_NULLS_ONLY"
+          }
+        }
+      ]
+    },
+    {
+      "FilterGroupId": "default-date-range-breakdown",
+      "CrossDataset": "SINGLE_DATASET",
+      "ScopeConfiguration": { "SelectedSheets": { "SheetVisualScopingConfigurations": [ { "SheetId": "breakdown", "Scope": "ALL_VISUALS" } ] } },
+      "Filters": [
+        {
+          "RelativeDatesFilter": {
+            "FilterId": "date-filter-breakdown",
+            "Column": { "DataSetIdentifier": "consolidated", "ColumnName": "day_date" },
+            "AnchorDateConfiguration": { "AnchorOption": "NOW" },
+            "TimeGranularity": "DAY",
+            "RelativeDateType": "LAST",
+            "RelativeDateValue": 30,
+            "NullOption": "NON_NULLS_ONLY"
+          }
+        }
+      ]
+    },
+    {
+      "FilterGroupId": "default-date-range-deepdive",
+      "CrossDataset": "SINGLE_DATASET",
+      "ScopeConfiguration": { "SelectedSheets": { "SheetVisualScopingConfigurations": [ { "SheetId": "deepdive", "Scope": "ALL_VISUALS" } ] } },
+      "Filters": [
+        {
+          "RelativeDatesFilter": {
+            "FilterId": "date-filter-deepdive",
+            "Column": { "DataSetIdentifier": "consolidated", "ColumnName": "day_date" },
+            "AnchorDateConfiguration": { "AnchorOption": "NOW" },
+            "TimeGranularity": "DAY",
+            "RelativeDateType": "LAST",
+            "RelativeDateValue": 30,
+            "NullOption": "NON_NULLS_ONLY"
+          }
+        }
+      ]
+    }
+  ],
+  "Sheets": [
+    {
+      "SheetId": "overview",
+      "Name": "Overview",
+      "FilterControls": [
+        {
+          "RelativeDateTime": {
+            "FilterControlId": "date-range-control-overview",
+            "Title": "Date range",
+            "SourceFilterId": "date-filter-overview"
+          }
+        }
+      ],
+      "Visuals": [
+        {
+          "KPIVisual": {
+            "VisualId": "kpi-total-events",
+            "Title": { "Visibility": "VISIBLE", "FormatText": { "PlainText": "Total Events" } },
+            "ChartConfiguration": {
+              "FieldWells": {
+                "Values": [
+                  { "CategoricalMeasureField": { "FieldId": "total-events", "Column": { "DataSetIdentifier": "consolidated", "ColumnName": "eventid" }, "AggregationFunction": "COUNT" } }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "KPIVisual": {
+            "VisualId": "kpi-error-rate",
+            "Title": { "Visibility": "VISIBLE", "FormatText": { "PlainText": "Error Rate %" } },
+            "ChartConfiguration": {
+              "FieldWells": {
+                "Values": [
+                  { "NumericalMeasureField": { "FieldId": "error-rate", "Column": { "DataSetIdentifier": "consolidated", "ColumnName": "error_rate_pct" } } }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "KPIVisual": {
+            "VisualId": "kpi-distinct-actors",
+            "Title": { "Visibility": "VISIBLE", "FormatText": { "PlainText": "Distinct Actors" } },
+            "ChartConfiguration": {
+              "FieldWells": {
+                "Values": [
+                  { "CategoricalMeasureField": { "FieldId": "distinct-actors", "Column": { "DataSetIdentifier": "consolidated", "ColumnName": "actor_arn" }, "AggregationFunction": "DISTINCT_COUNT" } }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "LineChartVisual": {
+            "VisualId": "trend-by-day",
+            "Title": { "Visibility": "VISIBLE", "FormatText": { "PlainText": "Event Volume by Day, by Source Trail" } },
+            "ChartConfiguration": {
+              "FieldWells": {
+                "LineChartAggregatedFieldWells": {
+                  "Category": [
+                    { "DateDimensionField": { "FieldId": "trend-date", "Column": { "DataSetIdentifier": "consolidated", "ColumnName": "event_timestamp" }, "DateGranularity": "DAY" } }
+                  ],
+                  "Values": [
+                    { "CategoricalMeasureField": { "FieldId": "trend-count", "Column": { "DataSetIdentifier": "consolidated", "ColumnName": "eventid" }, "AggregationFunction": "COUNT" } }
+                  ],
+                  "Colors": [
+                    { "CategoricalDimensionField": { "FieldId": "trend-source", "Column": { "DataSetIdentifier": "consolidated", "ColumnName": "source_trail" } } }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ],
+      "Layouts": [
+        {
+          "Configuration": {
+            "GridLayout": {
+              "Elements": [
+                { "ElementId": "kpi-total-events", "ElementType": "VISUAL", "ColumnIndex": 0, "ColumnSpan": 12, "RowIndex": 0, "RowSpan": 6 },
+                { "ElementId": "kpi-error-rate", "ElementType": "VISUAL", "ColumnIndex": 12, "ColumnSpan": 12, "RowIndex": 0, "RowSpan": 6 },
+                { "ElementId": "kpi-distinct-actors", "ElementType": "VISUAL", "ColumnIndex": 24, "ColumnSpan": 12, "RowIndex": 0, "RowSpan": 6 },
+                { "ElementId": "trend-by-day", "ElementType": "VISUAL", "ColumnIndex": 0, "ColumnSpan": 36, "RowIndex": 6, "RowSpan": 14 }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "SheetId": "breakdown",
+      "Name": "Breakdown",
+      "FilterControls": [
+        {
+          "RelativeDateTime": {
+            "FilterControlId": "date-range-control-breakdown",
+            "Title": "Date range",
+            "SourceFilterId": "date-filter-breakdown"
+          }
+        }
+      ],
+      "Visuals": [
+        {
+          "BarChartVisual": {
+            "VisualId": "hierarchy-bar",
+            "Title": { "Visibility": "VISIBLE", "FormatText": { "PlainText": "Events by Region → Service → Event Name (drill down)" } },
+            "ChartConfiguration": {
+              "FieldWells": {
+                "BarChartAggregatedFieldWells": {
+                  "Category": [
+                    { "CategoricalDimensionField": { "FieldId": "bar-category", "Column": { "DataSetIdentifier": "consolidated", "ColumnName": "awsregion" }, "HierarchyId": "region-service-event" } }
+                  ],
+                  "Values": [
+                    { "CategoricalMeasureField": { "FieldId": "bar-count", "Column": { "DataSetIdentifier": "consolidated", "ColumnName": "eventid" }, "AggregationFunction": "COUNT" } }
+                  ]
+                }
+              },
+              "Orientation": "HORIZONTAL"
+            },
+            "ColumnHierarchies": [
+              {
+                "ExplicitHierarchy": {
+                  "HierarchyId": "region-service-event",
+                  "Columns": [
+                    { "DataSetIdentifier": "consolidated", "ColumnName": "awsregion" },
+                    { "DataSetIdentifier": "consolidated", "ColumnName": "eventsource" },
+                    { "DataSetIdentifier": "consolidated", "ColumnName": "eventname" }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "Layouts": [
+        {
+          "Configuration": {
+            "GridLayout": {
+              "Elements": [
+                { "ElementId": "hierarchy-bar", "ElementType": "VISUAL", "ColumnIndex": 0, "ColumnSpan": 36, "RowIndex": 0, "RowSpan": 20 }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "SheetId": "deepdive",
+      "Name": "Deep dive",
+      "FilterControls": [
+        {
+          "RelativeDateTime": {
+            "FilterControlId": "date-range-control-deepdive",
+            "Title": "Date range",
+            "SourceFilterId": "date-filter-deepdive"
+          }
+        }
+      ],
+      "Visuals": [
+        {
+          "TableVisual": {
+            "VisualId": "detail-table",
+            "Title": { "Visibility": "VISIBLE", "FormatText": { "PlainText": "Event Detail" } },
+            "ChartConfiguration": {
+              "FieldWells": {
+                "TableUnaggregatedFieldWells": {
+                  "Values": [
+                    { "FieldId": "col-event-timestamp", "Column": { "DataSetIdentifier": "consolidated", "ColumnName": "event_timestamp" } },
+                    { "FieldId": "col-eventsource", "Column": { "DataSetIdentifier": "consolidated", "ColumnName": "eventsource" } },
+                    { "FieldId": "col-eventname", "Column": { "DataSetIdentifier": "consolidated", "ColumnName": "eventname" } },
+                    { "FieldId": "col-awsregion", "Column": { "DataSetIdentifier": "consolidated", "ColumnName": "awsregion" } },
+                    { "FieldId": "col-actor-arn", "Column": { "DataSetIdentifier": "consolidated", "ColumnName": "actor_arn" } },
+                    { "FieldId": "col-actor-username", "Column": { "DataSetIdentifier": "consolidated", "ColumnName": "actor_username" } },
+                    { "FieldId": "col-sourceipaddress", "Column": { "DataSetIdentifier": "consolidated", "ColumnName": "sourceipaddress" } },
+                    { "FieldId": "col-errorcode", "Column": { "DataSetIdentifier": "consolidated", "ColumnName": "errorcode" } },
+                    { "FieldId": "col-recipientaccountid", "Column": { "DataSetIdentifier": "consolidated", "ColumnName": "recipientaccountid" } },
+                    { "FieldId": "col-source-trail", "Column": { "DataSetIdentifier": "consolidated", "ColumnName": "source_trail" } }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ],
+      "Layouts": [
+        {
+          "Configuration": {
+            "GridLayout": {
+              "Elements": [
+                { "ElementId": "detail-table", "ElementType": "VISUAL", "ColumnIndex": 0, "ColumnSpan": 36, "RowIndex": 0, "RowSpan": 20 }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
