@@ -33,18 +33,48 @@ jq -r '
               then ($p | decode_deep) else . end
       else . end;
 
-    def keyify_named:
-      if type == "object" then map_values(keyify_named)
-      elif type == "array" then
-        ( if (length > 0)
-             and all(.[]; type == "object" and has("name"))
-             and ((map(.name) | length) == (map(.name) | unique | length))
-          then (map({ key: (.name|tostring), value: keyify_named }) | from_entries)
-          else map(keyify_named) end )
-      else . end;
+    # keyify_pair walks a value and its sensitivity-map counterpart (e.g.
+    # `before` + `before_sensitive`) TOGETHER, so the "is this a named array"
+    # decision is made once from the value and the identical keying is
+    # applied to the sensitivity side. Deciding independently on each side
+    # (as a plain keyify_named(value) / keyify_named(sensitivity) pair would)
+    # is unsafe: a block can carry its own literal "name" attribute (e.g.
+    # Auth0 connection `options`), which makes the value look like a
+    # named-array while the sensitivity map — which only marks flagged
+    # fields — has no "name" key at all and stays a plain array. That shape
+    # divergence silently breaks path lookups into the sensitivity map,
+    # letting a sensitive leaf (e.g. options[0].client_secret) slip through
+    # unredacted. Returns {v: <keyed value>, s: <sensitivity, keyed to match>}.
+    def keyify_pair($v; $s):
+      if ($v|type) == "object" then
+        reduce ($v|keys_unsorted[]) as $k ({v: {}, s: {}};
+          ( $v[$k] ) as $cv
+          | ( if ($s|type) == "object" then $s[$k] else $s end ) as $cs
+          | keyify_pair($cv; $cs) as $r
+          | { v: (.v + { ($k): $r.v }), s: (.s + { ($k): $r.s }) } )
+      elif ($v|type) == "array" then
+        if (($v|length) > 0)
+           and all($v[]; type == "object" and has("name"))
+           and (($v|map(.name) | length) == ($v|map(.name) | unique | length))
+        then
+          reduce range(0; $v|length) as $i ({v: {}, s: {}};
+            ( $v[$i] ) as $cv
+            | ( if ($s|type) == "array" then $s[$i] else $s end ) as $cs
+            | ($cv.name|tostring) as $key
+            | keyify_pair($cv; $cs) as $r
+            | { v: (.v + { ($key): $r.v }), s: (.s + { ($key): $r.s }) } )
+        else
+          reduce range(0; $v|length) as $i ({v: [], s: []};
+            ( $v[$i] ) as $cv
+            | ( if ($s|type) == "array" then $s[$i] else $s end ) as $cs
+            | keyify_pair($cv; $cs) as $r
+            | { v: (.v + [$r.v]), s: (.s + [$r.s]) } )
+        end
+      else { v: $v, s: $s } end;
 
-    # Tolerant getpath: keyify_named can make before/after/after_unknown differ
-    # in shape (array on one side, name-keyed object on another), so a path
+    # Tolerant getpath: keyify_pair can still make before/after/after_unknown
+    # differ in shape (array on one side, name-keyed object on another) when
+    # a named block was added/removed between before and after, so a path
     # valid on one side may try to index an array with a string on another.
     # Return null instead of aborting the whole file.
     def get_safe($v; $p): (try ($v | getpath($p)) catch null);
@@ -55,16 +85,23 @@ jq -r '
     # Same idea as unknown_at, but for before_sensitive/after_sensitive: a
     # `true` at any prefix of the path means everything under it is marked
     # sensitive by the provider (whole-object sensitivity, not just leaves).
+    # keyify_pair already pushes a whole-subtree `true` down to every leaf,
+    # so in practice this only needs to check the exact path — the prefix
+    # walk is kept as a cheap safety net.
     def sensitive_at($sm; $p):
       any(range(0; ($p|length)+1) as $i | get_safe($sm; $p[:$i]); . == true);
 
     def diff_entries:
-      (.change.replace_paths // [])                         as $rp
-      | (.change.before        | decode_deep | keyify_named) as $b
-      | (.change.after         | decode_deep | keyify_named) as $a
-      | (.change.after_unknown // {})                        as $au
-      | (.change.before_sensitive // false | decode_deep | keyify_named) as $bs
-      | (.change.after_sensitive  // false | decode_deep | keyify_named) as $as
+      (.change.replace_paths // [])                          as $rp
+      | (.change.before          | decode_deep)               as $braw
+      | (.change.after           | decode_deep)               as $araw
+      | (.change.before_sensitive // false | decode_deep)      as $bsraw
+      | (.change.after_sensitive  // false | decode_deep)      as $asraw
+      | (.change.after_unknown // {})                         as $au
+      | (keyify_pair($braw; $bsraw))                          as $bpair
+      | (keyify_pair($araw; $asraw))                          as $apair
+      | $bpair.v as $b | $bpair.s as $bs
+      | $apair.v as $a | $apair.s as $as
       | ( [ $b | paths(scalars) ] + [ $a | paths(scalars) ] | unique ) as $paths
       | [ $paths[]
           | . as $p
