@@ -181,7 +181,7 @@ jq -r '
     # Same buckets as plan-report.sh: "removed" = a forget (dropped from state
     # WITHOUT destroying); imports ride alongside a no-op/update via
     # .change.importing; moves are address changes only.
-    (input_filename | split("/")[-3]) as $title          # the <customer> dir
+    (input_filename | split("/")[0:-3]|join("/")|gsub("^.+/nri-terraform";"nri-terraform")) as $title          # the <customer> dir
     | ( [ .resource_changes[]?
           | select(.previous_address != null
                    or .change.importing != null
