@@ -52,20 +52,33 @@ jq -r '
     def unknown_at($au; $p):
       any(range(0; ($p|length)+1) as $i | get_safe($au; $p[:$i]); . == true);
 
+    # Same idea as unknown_at, but for before_sensitive/after_sensitive: a
+    # `true` at any prefix of the path means everything under it is marked
+    # sensitive by the provider (whole-object sensitivity, not just leaves).
+    def sensitive_at($sm; $p):
+      any(range(0; ($p|length)+1) as $i | get_safe($sm; $p[:$i]); . == true);
+
     def diff_entries:
       (.change.replace_paths // [])                         as $rp
       | (.change.before        | decode_deep | keyify_named) as $b
       | (.change.after         | decode_deep | keyify_named) as $a
       | (.change.after_unknown // {})                        as $au
+      | (.change.before_sensitive // false | decode_deep | keyify_named) as $bs
+      | (.change.after_sensitive  // false | decode_deep | keyify_named) as $as
       | ( [ $b | paths(scalars) ] + [ $a | paths(scalars) ] | unique ) as $paths
       | [ $paths[]
           | . as $p
+          | get_safe($b; $p) as $bv
+          | get_safe($a; $p) as $av
+          | select($bv != $av)
           | { p: $p,
-              before: get_safe($b; $p),
+              before: (if sensitive_at($bs; $p) and $bv != null
+                       then "(sensitive value)" else $bv end),
               after:  (if unknown_at($au; $p) then "(known after apply)"
-                       else get_safe($a; $p) end),
-              forces: (any($rp[]; . as $pre | $p[:($pre|length)] == $pre)) }
-          | select(.before != .after) ];
+                       elif sensitive_at($as; $p) and $av != null
+                       then "(sensitive value)"
+                       else $av end),
+              forces: (any($rp[]; . as $pre | $p[:($pre|length)] == $pre)) } ];
 
     # ---- markdown rendering -------------------------------------------------
     # action -> "<emoji> <label>"
