@@ -5,12 +5,11 @@
 
 ```bash
 buckets=(
- s3://aws-cloudtrail-logs-381492092437-74dbd159/AWSLogs/381492092437/CloudTrail/           # --from-profile nri-develop
  s3://nri-cloudtrail-logs-381492092437/cloudtrail-logs/AWSLogs/381492092437/CloudTrail/    # --from-profile nri-develop
  s3://nri-cloudtrail-logs-637423466983/cloudtrail-logs/AWSLogs/637423466983/CloudTrail/    # --from-profile nri-customer
  s3://aws-cloudtrail-logs-293034550673-c21dd2f3/AWSLogs/293034550673/CloudTrail/           # --from-profile newton
 )
-DATE=2026/06/
+DATE=2026/07/
 function update_batches() {
   CT_DEV_A=(
    --from "s3://aws-cloudtrail-logs-381492092437-74dbd159/AWSLogs/381492092437/CloudTrail/*/${DATE}"
