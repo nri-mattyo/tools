@@ -16,6 +16,7 @@ from datetime import datetime, timezone
 import awswrangler as wr
 import pandas as pd
 from botocore.config import Config
+from botocore.exceptions import ConnectionError, IncompleteReadError, ReadTimeoutError
 
 from athena_ddl import DEFAULT_DATABASE, default_table_name, repair_table_sql
 from cloudtrail_schema import ORIG_FILE_COLUMN, PARTITION_COLUMNS, flatten_record, partition_for
@@ -107,8 +108,25 @@ def list_source_objects(s3, bucket, prefixes):
     return objects
 
 
+FETCH_RETRY_ATTEMPTS = 5
+
+# get_object()'s own retries (the pool_config below) only cover the initial
+# request/response -- the call returns as soon as headers arrive, and
+# Body.read() streams the object content afterward, outside that retry
+# wrapper. A stall during the read (seen in practice on a flaky connection)
+# raises past it untouched, so the read itself needs its own retry loop.
 def fetch_records(s3, bucket, key):
-    body = s3.get_object(Bucket=bucket, Key=key)["Body"].read()
+    for attempt in range(1, FETCH_RETRY_ATTEMPTS + 1):
+        try:
+            body = s3.get_object(Bucket=bucket, Key=key)["Body"].read()
+            break
+        except (ReadTimeoutError, ConnectionError, IncompleteReadError) as e:
+            if attempt == FETCH_RETRY_ATTEMPTS:
+                raise
+            wait = min(2 ** attempt, 30)
+            log.warning("retrying %s after body-read error (attempt %d/%d): %s -- waiting %ds",
+                        key, attempt, FETCH_RETRY_ATTEMPTS, e, wait)
+            time.sleep(wait)
     data = json.loads(gzip.decompress(body))
     return data.get("Records", [])
 
